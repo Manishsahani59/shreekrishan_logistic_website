@@ -1,0 +1,111 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  [class.bg-white]="opaque()"
+  [class.shadow-soft]="opaque()"
+  [class.py-3]="opaque()"
+  [class.py-5]="!opaque()"
+>
+  <nav class="container flex items-center justify-between">
+    <a routerLink="/" class="relative z-10 flex h-12 w-[150px] shrink-0 items-start">
+      <img
+        src="logo-dark.png"
+        alt="Shri Krishna Logistics"
+        width="150"
+        height="150"
+        class="absolute left-0 top-0 h-[150px] w-[150px] object-contain"
+      />
+    </a>
+
+    <ul class="hidden items-center gap-8 lg:flex">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="'/' + link.path"
+            routerLinkActive
+            #rla="routerLinkActive"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-sm font-medium transition-colors hover:text-accent-500"
+            [class.text-accent-500]="rla.isActive"
+            [class.text-navy-800]="opaque() && !rla.isActive"
+            [class.text-white/90]="!opaque() && !rla.isActive"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li>
+        <a
+          [href]="loginUrl"
+          class="text-sm font-medium transition-colors hover:text-accent-500"
+          [class.text-navy-800]="opaque()"
+          [class.text-white/90]="!opaque()"
+        >
+          Login
+        </a>
+      </li>
+    </ul>
+
+    <div class="hidden lg:block">
+      <a
+        routerLink="/contact"
+        class="rounded-full bg-accent-gradient px-6 py-2.5 text-sm font-semibold text-navy-950 shadow-soft transition-transform hover:scale-105"
+      >
+        Get a Quote
+      </a>
+    </div>
+
+    <button
+      type="button"
+      class="grid h-10 w-10 place-items-center rounded-lg lg:hidden"
+      [class.text-navy-900]="opaque()"
+      [class.text-white]="!opaque()"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle menu"
+    >
+      <app-icon [name]="mobileMenuOpen ? 'close' : 'menu'" class="h-7 w-7" />
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    class="overflow-hidden bg-white shadow-soft transition-all duration-300 lg:hidden"
+    [style.maxHeight]="mobileMenuOpen ? '560px' : '0px'"
+  >
+    <ul class="container flex flex-col gap-1 py-4">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="'/' + link.path"
+            routerLinkActive
+            #mrla="routerLinkActive"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMobileMenu()"
+            class="block rounded-lg px-3 py-3 text-sm font-medium hover:bg-navy-900/5"
+            [class.text-accent-600]="mrla.isActive"
+            [class.bg-navy-900/5]="mrla.isActive"
+            [class.text-navy-800]="!mrla.isActive"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li>
+        <a
+          [href]="loginUrl"
+          class="block rounded-lg px-3 py-3 text-sm font-medium text-navy-800 hover:bg-navy-900/5"
+        >
+          Login
+        </a>
+      </li>
+      <li class="pt-2">
+        <a
+          routerLink="/contact"
+          (click)="closeMobileMenu()"
+          class="block rounded-full bg-accent-gradient px-6 py-3 text-center text-sm font-semibold text-navy-950"
+        >
+          Get a Quote
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>

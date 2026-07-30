@@ -1,0 +1,23 @@
+@if (!isHome()) {
+  <div class="sticky top-16 z-40 mt-44 border-b border-navy-900/5 bg-white/95 backdrop-blur">
+    <div class="container flex items-center justify-between py-2.5">
+      <nav class="flex items-center gap-2 text-xs text-navy-800/70" aria-label="Breadcrumb">
+        <a routerLink="/" class="flex items-center gap-1 font-medium text-navy-700 transition-colors hover:text-accent-600">
+          <app-icon name="location" class="h-3.5 w-3.5" />
+          Home
+        </a>
+        <app-icon name="arrow-right" class="h-3 w-3 text-navy-800/30" />
+        <span class="font-semibold text-navy-900">{{ activeLabel() }}</span>
+      </nav>
+
+      <a
+        routerLink="/"
+        class="flex items-center gap-1 rounded-full px-2.5 py-1 text-xs text-navy-800/60 transition-colors hover:bg-navy-900/5 hover:text-navy-900"
+        aria-label="Clear breadcrumb and return home"
+      >
+        <app-icon name="close" class="h-3 w-3" />
+        Clear
+      </a>
+    </div>
+  </div>
+}

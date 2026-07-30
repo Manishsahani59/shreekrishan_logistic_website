@@ -1,0 +1,19 @@
+<button
+  type="button"
+  class="fixed bottom-20 left-6 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-soft transition-transform hover:scale-110"
+  aria-label="Chat on WhatsApp"
+>
+  <app-icon name="whatsapp" class="h-7 w-7" />
+</button>
+
+<button
+  type="button"
+  (click)="scrollToTop()"
+  class="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-navy-gradient text-white shadow-soft transition-all duration-300 hover:scale-110"
+  [class.opacity-0]="!showBackToTop()"
+  [class.pointer-events-none]="!showBackToTop()"
+  [class.opacity-100]="showBackToTop()"
+  aria-label="Back to top"
+>
+  <app-icon name="arrow-up" class="h-5 w-5" />
+</button>

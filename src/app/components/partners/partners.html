@@ -1,0 +1,31 @@
+<section class="border-y border-navy-900/5 bg-white py-16">
+  <div class="container">
+    <p class="reveal text-center text-xs font-bold uppercase tracking-widest text-navy-800/50">
+      Trusted by teams at
+    </p>
+    <div class="relative mt-8 overflow-hidden">
+      <div class="marquee-track gap-16">
+        @for (partner of partners; track partner.logo) {
+          <span class="flex h-20 w-44 shrink-0 items-center justify-center">
+            <img
+              [src]="'clients/' + partner.logo + '.png'"
+              [alt]="partner.name"
+              loading="lazy"
+              class="max-h-20 max-w-44 object-contain"
+            />
+          </span>
+        }
+        @for (partner of partners; track partner.logo) {
+          <span class="flex h-20 w-44 shrink-0 items-center justify-center" aria-hidden="true">
+            <img
+              [src]="'clients/' + partner.logo + '.png'"
+              [alt]="partner.name"
+              loading="lazy"
+              class="max-h-20 max-w-44 object-contain"
+            />
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

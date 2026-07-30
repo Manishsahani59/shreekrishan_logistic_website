@@ -1,0 +1,147 @@
+<section id="contact" class="bg-slate-50 py-24 sm:py-32">
+  <div class="container grid gap-12 lg:grid-cols-2">
+    <div class="reveal">
+      <span class="text-xs font-bold uppercase tracking-widest text-accent-600">Contact Us</span>
+      <h2 class="mt-3 font-heading text-3xl font-bold text-navy-900 sm:text-4xl">Let's Get in Touch</h2>
+      <p class="mt-4 text-navy-800/70">
+        Tell us about your shipment and our team will get back to you with a tailored logistics plan.
+      </p>
+
+      <div class="mt-8 space-y-4">
+        <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-gradient text-white">
+            <app-icon name="pin" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="font-heading font-semibold text-navy-900">Registered Office</p>
+            <p class="text-sm text-navy-800/70">Near India Bus Park, Sonauli, Maharajganj (U.P) 273308</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-gradient text-white">
+            <app-icon name="mail" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="font-heading font-semibold text-navy-900">Email Us</p>
+            <p class="text-sm text-navy-800/70">info&#64;shrikrishnalogistics.in</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-gradient text-white">
+            <app-icon name="phone" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="font-heading font-semibold text-navy-900">Call Us</p>
+            <p class="text-sm text-navy-800/70">+91 94529 38895, +91 98382 75134</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-gradient text-white">
+            <app-icon name="headset" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="font-heading font-semibold text-navy-900">For Booking</p>
+            <p class="text-sm text-navy-800/70">Amit (General Manager) — +91 94529 38895, +91 98382 75134</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 overflow-hidden rounded-2xl border border-navy-900/10 shadow-card">
+        <iframe
+          [src]="mapUrl"
+          width="100%"
+          height="280"
+          style="border:0;"
+          allowfullscreen="true"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Shri Krishna Logistics location on Google Maps"
+        ></iframe>
+      </div>
+    </div>
+
+    <div id="contact-form" class="reveal reveal-delay-1 rounded-3xl bg-white p-8 shadow-soft sm:p-10">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="space-y-5">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-navy-900">Full Name</label>
+            <input
+              type="text"
+              formControlName="fullName"
+              placeholder="Enter your full name"
+              class="w-full rounded-xl border bg-slate-50 px-4 py-3 text-sm text-navy-900 outline-none transition-colors focus:border-accent-500"
+              [class.border-navy-900/10]="!isInvalid('fullName')"
+              [class.border-red-500]="isInvalid('fullName')"
+            />
+            @if (isInvalid('fullName')) {
+              <p class="mt-1.5 text-xs text-red-500">
+                @if (contactForm.controls.fullName.errors?.['required']) {
+                  Full name is required.
+                } @else if (contactForm.controls.fullName.errors?.['minlength']) {
+                  Full name must be at least 3 characters.
+                }
+              </p>
+            }
+          </div>
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-navy-900">Email Address</label>
+            <input
+              type="email"
+              formControlName="email"
+              placeholder="Enter your email address"
+              class="w-full rounded-xl border bg-slate-50 px-4 py-3 text-sm text-navy-900 outline-none transition-colors focus:border-accent-500"
+              [class.border-navy-900/10]="!isInvalid('email')"
+              [class.border-red-500]="isInvalid('email')"
+            />
+            @if (isInvalid('email')) {
+              <p class="mt-1.5 text-xs text-red-500">
+                @if (contactForm.controls.email.errors?.['required']) {
+                  Email address is required.
+                } @else if (contactForm.controls.email.errors?.['email']) {
+                  Enter a valid email address.
+                }
+              </p>
+            }
+          </div>
+        </div>
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-navy-900">Service Needed</label>
+          <select
+            formControlName="service"
+            class="w-full rounded-xl border border-navy-900/10 bg-slate-50 px-4 py-3 text-sm text-navy-900 outline-none transition-colors focus:border-accent-500"
+          >
+            @for (service of services; track service) {
+              <option [value]="service">{{ service }}</option>
+            }
+          </select>
+        </div>
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-navy-900">Message</label>
+          <textarea
+            rows="4"
+            formControlName="message"
+            placeholder="Tell us about your shipment..."
+            class="w-full rounded-xl border bg-slate-50 px-4 py-3 text-sm text-navy-900 outline-none transition-colors focus:border-accent-500"
+            [class.border-navy-900/10]="!isInvalid('message')"
+            [class.border-red-500]="isInvalid('message')"
+          ></textarea>
+          @if (isInvalid('message')) {
+            <p class="mt-1.5 text-xs text-red-500">
+              @if (contactForm.controls.message.errors?.['required']) {
+                Message is required.
+              } @else if (contactForm.controls.message.errors?.['minlength']) {
+                Message must be at least 10 characters.
+              }
+            </p>
+          }
+        </div>
+        <button type="submit" class="w-full rounded-xl bg-accent-gradient py-4 text-sm font-semibold text-navy-950 shadow-soft transition-transform hover:scale-[1.02]">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<app-branches />
+<app-faq />
