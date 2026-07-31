@@ -136,6 +136,10 @@ import { Component, input } from '@angular/core';
           <path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z" />
           <circle cx="12" cy="9.8" r="2.4" />
         }
+        @case ('search') {
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="M20 20l-4.8-4.8" />
+        }
         @case ('menu') {
           <path d="M4 7h16M4 12h16M4 17h16" />
         }

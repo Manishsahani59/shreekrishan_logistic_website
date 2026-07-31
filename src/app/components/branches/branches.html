@@ -17,8 +17,44 @@
       />
     </div>
 
+    <div class="reveal mx-auto mt-12 max-w-3xl">
+      <div class="relative">
+        <app-icon name="search" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-navy-800/40" />
+        <input
+          type="text"
+          [ngModel]="searchQuery()"
+          (ngModelChange)="searchQuery.set($event)"
+          placeholder="Search by city, address or contact person..."
+          class="w-full rounded-xl border border-navy-900/10 bg-white py-3 pl-11 pr-4 text-sm text-navy-900 shadow-card outline-none transition-colors focus:border-accent-500"
+        />
+      </div>
+
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        @for (type of branchTypes; track type) {
+          <button
+            type="button"
+            (click)="setType(type)"
+            class="rounded-full px-4 py-1.5 text-xs font-semibold transition-colors"
+            [class.bg-navy-gradient]="selectedType() === type"
+            [class.text-white]="selectedType() === type"
+            [class.bg-white]="selectedType() !== type"
+            [class.text-navy-800]="selectedType() !== type"
+            [class.shadow-card]="selectedType() !== type"
+          >
+            {{ type }}
+          </button>
+        }
+      </div>
+    </div>
+
+    @if (filteredBranches().length === 0) {
+      <p class="reveal mt-12 text-center text-sm text-navy-800/60">
+        No branches match your search. Try a different city or filter.
+      </p>
+    }
+
     <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      @for (branch of branches; track branch.city; let i = $index) {
+      @for (branch of filteredBranches(); track branch.city; let i = $index) {
         <div
           class="reveal group rounded-2xl border border-navy-900/5 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
           [class.reveal-delay-1]="i % 3 === 1"
@@ -39,10 +75,13 @@
           <div class="mt-4 space-y-1.5 border-t border-navy-900/5 pt-4 text-sm">
             <p class="font-medium text-navy-900">{{ branch.contact }}</p>
             @for (phone of branch.phones; track phone) {
-              <p class="flex items-center gap-2 text-navy-800/70">
+              <a
+                [href]="telHref(phone)"
+                class="flex items-center gap-2 text-navy-800/70 hover:text-accent-600 hover:underline"
+              >
                 <app-icon name="phone" class="h-3.5 w-3.5 shrink-0 text-accent-600" />
                 {{ phone }}
-              </p>
+              </a>
             }
             @if (branch.email) {
               <p class="flex items-center gap-2 text-navy-800/70">
