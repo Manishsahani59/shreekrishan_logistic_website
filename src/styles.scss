@@ -131,6 +131,23 @@ h1, h2, h3, h4, h5, h6 {
   100% { left: 100%; }
 }
 
+/* Live shipment progress indicator */
+.shipment-progress {
+  position: relative;
+}
+.shipment-progress-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 45%;
+  animation: shipmentMove 1.8s ease-in-out infinite;
+}
+@keyframes shipmentMove {
+  0% { left: -45%; }
+  100% { left: 100%; }
+}
+
 /* Accordion content transition */
 .accordion-panel {
   display: grid;

@@ -136,6 +136,34 @@ import { Component, input } from '@angular/core';
           <path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z" />
           <circle cx="12" cy="9.8" r="2.4" />
         }
+        @case ('flag-india') {
+          <rect x="1" y="6" width="22" height="12" rx="1.5" fill="#ffffff" stroke="none" />
+          <path d="M1 6h22v4H1z" fill="#ff9933" stroke="none" />
+          <path d="M1 14h22v4H1z" fill="#128807" stroke="none" />
+          <rect x="1" y="6" width="22" height="12" rx="1.5" fill="none" stroke="#0a2757" stroke-width="0.8" />
+          <circle cx="12" cy="12" r="1.8" fill="none" stroke="#0a2757" stroke-width="0.5" />
+          <circle cx="12" cy="12" r="0.45" fill="#0a2757" stroke="none" />
+          <path
+            d="M12 10.2v3.6M10.2 12h3.6M10.7 10.7l2.6 2.6M13.3 10.7l-2.6 2.6"
+            stroke="#0a2757"
+            stroke-width="0.35"
+          />
+        }
+        @case ('flag-nepal') {
+          <rect x="1" y="6" width="22" height="12" rx="1.5" fill="#dc143c" stroke="none" />
+          <rect x="1" y="6" width="22" height="12" rx="1.5" fill="none" stroke="#003893" stroke-width="1" />
+          <circle cx="8.5" cy="10" r="1.6" fill="none" stroke="#ffffff" stroke-width="0.7" />
+          <path
+            d="M15.5 13l0.6 1.3 1.4.15-1 .95.3 1.35-1.3-.8-1.3.8.3-1.35-1-.95 1.4-.15z"
+            fill="#ffffff"
+            stroke="none"
+          />
+        }
+        @case ('home') {
+          <path d="M4 11 12 4l8 7" />
+          <path d="M6 9.5V20h12V9.5" />
+          <path d="M10 20v-6h4v6" />
+        }
         @case ('search') {
           <circle cx="10.5" cy="10.5" r="6.5" />
           <path d="M20 20l-4.8-4.8" />

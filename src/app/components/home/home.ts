@@ -29,6 +29,34 @@ interface OverviewItem {
   templateUrl: './home.html',
 })
 export class HomeComponent {
+  protected readonly coreServices: OverviewItem[] = [
+    {
+      icon: 'box',
+      title: 'Goods Booking',
+      description: 'All types of goods booking service.',
+    },
+    {
+      icon: 'truck',
+      title: 'Full Truck Load (FTL)',
+      description: 'FTL service for all over India & Nepal.',
+    },
+    {
+      icon: 'globe',
+      title: 'India – Nepal Freight',
+      description: 'Safe, fast & reliable freight service.',
+    },
+    {
+      icon: 'shield',
+      title: 'India – Nepal Customs Clearance',
+      description: 'Complete customs clearance support.',
+    },
+    {
+      icon: 'home',
+      title: 'Door to Door Transport',
+      description: 'Safe & secure door to door delivery.',
+    },
+  ];
+
   protected readonly servicesOverview: OverviewItem[] = [
     {
       icon: 'warehouse',
