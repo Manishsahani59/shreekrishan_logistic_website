@@ -17,7 +17,7 @@ export class FaqComponent {
     {
       question: 'What regions does Shri Krishna Logistics operate in?',
       answer:
-        'We operate across 42 countries spanning North America, Europe, Asia and the Middle East, with hub warehouses in every major trade region.',
+        'We operate across India, Nepal and China, with border offices at Sonauli, Raxaul and Rupediha and a growing branch network across all three countries.',
       open: true,
     },
     {

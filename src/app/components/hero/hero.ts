@@ -10,7 +10,7 @@ import { IconComponent } from '../../shared/icon/icon';
 export class HeroComponent implements OnInit, OnDestroy {
   protected readonly heroStats = [
     { value: '18K+', label: 'Deliveries / month' },
-    { value: '42', label: 'Countries served' },
+    { value: '3', label: 'Countries served' },
     { value: '99.6%', label: 'On-time rate' },
   ];
 

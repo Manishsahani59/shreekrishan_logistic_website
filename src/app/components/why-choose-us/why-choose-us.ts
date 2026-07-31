@@ -21,8 +21,8 @@ export class WhyChooseUsComponent {
     },
     {
       icon: 'globe',
-      title: 'Global Network',
-      description: 'Presence across 42 countries with trusted partners at every major port and hub.',
+      title: 'Cross-Border Network',
+      description: 'A trusted network across India, Nepal and China, with dedicated support at every border crossing.',
     },
     {
       icon: 'radar',
