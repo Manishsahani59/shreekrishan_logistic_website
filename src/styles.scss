@@ -31,6 +31,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 999px;
 }
 
+/* Utility: script/highlight font, matches the promotional flyer's tagline style */
+.font-script {
+  font-family: 'Alex Brush', cursive;
+  line-height: 1.4;
+}
+
 /* Utility: gradient text */
 .text-gradient {
   background: linear-gradient(135deg, #ffc266 0%, #f5a524 100%);
