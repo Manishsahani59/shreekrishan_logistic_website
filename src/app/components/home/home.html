@@ -4,12 +4,20 @@
   <div class="container">
     <div class="reveal mx-auto max-w-3xl text-center">
       <div class="flex items-center justify-center gap-4 sm:gap-8">
-        <app-icon name="flag-india" class="flag-wave h-12 w-[72px] shrink-0 drop-shadow sm:h-16 sm:w-24 lg:h-20 lg:w-28" />
+        <div class="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+          <span class="flagpole absolute left-1 top-0 h-full w-[3px] rounded-full"></span>
+          <span class="absolute -left-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-amber-400 shadow"></span>
+          <app-icon name="flag-india" class="flag-fly absolute left-1.5 top-1 h-1/2 w-[85%] drop-shadow-md" />
+        </div>
         <div>
           <span class="text-xs font-bold uppercase tracking-widest text-accent-600">India — Nepal</span>
           <h2 class="mt-2 font-heading text-2xl font-bold text-navy-900 sm:text-3xl lg:text-4xl">Moving Your Business Forward, Everywhere</h2>
         </div>
-        <app-icon name="flag-nepal" class="flag-wave flag-wave-delay h-12 w-[72px] shrink-0 drop-shadow sm:h-16 sm:w-24 lg:h-20 lg:w-28" />
+        <div class="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+          <span class="flagpole absolute left-1 top-0 h-full w-[3px] rounded-full"></span>
+          <span class="absolute -left-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-amber-400 shadow"></span>
+          <app-icon name="flag-nepal" class="flag-fly flag-fly-delay absolute left-1.5 top-1 h-1/2 w-[85%] drop-shadow-md" />
+        </div>
       </div>
       <p class="mt-6 text-navy-800/70">
         Shri Krishna Logistics delivers premium road, air, sea and rail freight solutions — engineered for speed,

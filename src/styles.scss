@@ -31,17 +31,20 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 999px;
 }
 
-/* Waving flag animation */
-.flag-wave {
-  animation: flagWave 2.6s ease-in-out infinite;
-  transform-origin: center;
+/* Flagpole + flying flag */
+.flagpole {
+  background: linear-gradient(180deg, #e2e8f0, #94a3b8 60%, #64748b);
 }
-.flag-wave-delay {
-  animation-delay: 0.4s;
+.flag-fly {
+  transform-origin: left center;
+  animation: flagFly 1.8s ease-in-out infinite;
 }
-@keyframes flagWave {
-  0%, 100% { transform: rotate(-2deg) skewY(-3deg) scaleY(0.97); }
-  50% { transform: rotate(2deg) skewY(3deg) scaleY(1.03); }
+.flag-fly-delay {
+  animation-delay: 0.3s;
+}
+@keyframes flagFly {
+  0%, 100% { transform: skewY(-6deg) scaleX(1); }
+  50% { transform: skewY(6deg) scaleX(0.96); }
 }
 
 /* Utility: script/highlight font, matches the promotional flyer's tagline style */
