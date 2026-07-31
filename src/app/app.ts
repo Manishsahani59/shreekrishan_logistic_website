@@ -7,6 +7,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb';
 import { FooterComponent } from './components/footer/footer';
 import { FloatingActionsComponent } from './components/floating-actions/floating-actions';
 import { ScrollStateService } from './core/services/scroll-state.service';
+import { SeoService } from './core/services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { ScrollStateService } from './core/services/scroll-state.service';
 export class App implements AfterViewInit, OnDestroy {
   private readonly scrollState = inject(ScrollStateService);
   private readonly router = inject(Router);
+  private readonly seo = inject(SeoService);
 
   private revealObserver?: IntersectionObserver;
   private routerSubscription?: Subscription;

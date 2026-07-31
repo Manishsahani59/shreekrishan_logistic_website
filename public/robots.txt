@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shrikrishna-logistics.vercel.app/sitemap.xml
