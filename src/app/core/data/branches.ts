@@ -11,7 +11,7 @@ export const BRANCHES: Branch[] = [
   {
     city: 'Head Office — Sonauli',
     address: 'Near India Bus Park, Sonauli, Maharajganj (U.P) 273308',
-    contact: 'Amit (General Manager)',
+    contact: 'Amit (MD, Managing Director)',
     phones: ['+91 94529 38895', '+91 98382 75134'],
     type: 'Head Office',
     email: 'info@shrikrishnalogistics.in',
