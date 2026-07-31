@@ -82,10 +82,13 @@
               </a>
             }
             @if (branch.email) {
-              <p class="flex items-center gap-2 text-navy-800/70">
+              <a
+                [href]="'mailto:' + branch.email"
+                class="flex items-center gap-2 text-navy-800/70 hover:text-accent-600 hover:underline"
+              >
                 <app-icon name="mail" class="h-3.5 w-3.5 shrink-0 text-accent-600" />
                 {{ branch.email }}
-              </p>
+              </a>
             }
           </div>
 
